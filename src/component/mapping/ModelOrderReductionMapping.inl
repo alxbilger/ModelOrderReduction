@@ -176,7 +176,7 @@ void ModelOrderReductionMapping<TIn, TOut>::applyJT(const core::ConstraintParams
     const MatrixDeriv& in = dIn.getValue();
     typename Out::MatrixDeriv::RowConstIterator rowItEnd = in.end();
     msg_info(this) << "In apply JT constraint";
-    size_t nbModes = m_modesEigen.cols();
+    unsigned int nbModes = m_modesEigen.cols();
 
 //    Eigen::SparseMatrix<double> constraintMat, res;
 //    std::vector< Eigen::Triplet<double> > tripletList;
