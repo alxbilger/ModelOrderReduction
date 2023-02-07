@@ -49,6 +49,7 @@ jobs:
         run: |
           cd "$WORKSPACE_SRC_PATH"
           echo "$SOFA_ROOT"
+          ls -la "$SOFA_ROOT"
           for f in $(find ./doc/examples -type f -name "*.py" | xargs grep -r "createScene" | cut -d':' -f1 | uniq); do
             echo "Testing $f..."
           done
