@@ -40,4 +40,4 @@ jobs:
         shell: bash
         run: |
           cd "$WORKSPACE_SRC_PATH"
-          find ./doc/examples -type f -name "*.py" | grep -r "createScene" | cut -d':' -f1 | uniq
+          find ./doc/examples -type f -name "*.py" | xargs grep -r "createScene" | cut -d':' -f1 | uniq
