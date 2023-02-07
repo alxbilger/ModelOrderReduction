@@ -101,6 +101,11 @@ jobs:
           echo '----------------------'
           python -c "import sys; print('sys.version = ' + str(sys.version)); print('sys.path = ' + str(sys.path))"
 
+      - name: Find scenes
+        shell: bash
+        run: |
+          find doc/examples -type f -name "*.py"
+
   deploy:
     name: Deploy artifacts
     if: always() && startsWith(github.ref, 'refs/heads/') # we are on a branch (not a PR)
