@@ -71,6 +71,6 @@ jobs:
           ls -la "$SofaPython3_ROOT"
           for f in $(find ./doc/examples -type f -name "*.py" | xargs grep -r "createScene" | cut -d':' -f1 | uniq); do
             echo "Testing $f..."
-            "$SOFA_ROOT"/bin/runSofa${{ steps.sofa.outputs.exe }} -l "$SofaPython3_ROOT"/SofaPython3 "$f$" -g batch -n 10
+            "$SOFA_ROOT"/bin/runSofa${{ steps.sofa.outputs.exe }} -l "$SofaPython3_ROOT"/lib/libSofaPython3.so "$f$" -g batch -n 10
           done
           
