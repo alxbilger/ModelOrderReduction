@@ -55,6 +55,12 @@ jobs:
           mv "${{ runner.temp }}"/sp3_tmp/binaries/SofaPython3_*/* "$SofaPython3_ROOT"
           echo "SofaPython3_ROOT=$SofaPython3_ROOT" | tee -a $GITHUB_ENV
           echo "SofaPython3_DIR=$SofaPython3_ROOT/lib/cmake/SofaPython3" | tee -a $GITHUB_ENV
+          if [[ "$RUNNER_OS" == "Windows" ]]; then
+            SofaPython3_LIB="$SofaPython3_ROOT"/lib/SofaPython3.lib
+          else [[ "$RUNNER_OS" == "Linux" ]]; then
+            SofaPython3_LIB="$SofaPython3_ROOT"/lib/libSofaPython3.so
+          else
+            SofaPython3_LIB="$SofaPython3_ROOT"/lib/libSofaPython3.dylib
 
       - name: Checkout source code
         uses: actions/checkout@v2
@@ -69,8 +75,9 @@ jobs:
           ls -la "$SOFA_ROOT"
           echo "$SofaPython3_ROOT"
           ls -la "$SofaPython3_ROOT"
+          ls -la "$SofaPython3_ROOT"/lib
           for f in $(find ./doc/examples -type f -name "*.py" | xargs grep -r "createScene" | cut -d':' -f1 | uniq); do
             echo "Testing $f..."
-            "$SOFA_ROOT"/bin/runSofa${{ steps.sofa.outputs.exe }} -l "$SofaPython3_ROOT"/lib/libSofaPython3.so "$f$" -g batch -n 10
+            "$SOFA_ROOT"/bin/runSofa${{ steps.sofa.outputs.exe }} -l "SofaPython3_LIB" "$f$" -g batch -n 10
           done
           
