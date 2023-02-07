@@ -35,4 +35,6 @@ jobs:
         shell: bash
         run: |
           cd "$WORKSPACE_SRC_PATH"
+          ls -la
+          pwd
           find ./doc/examples -type f -name "*.py"
