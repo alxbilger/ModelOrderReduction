@@ -34,4 +34,4 @@ jobs:
       - name: Find scenes
         shell: bash
         run: |
-          scenes_py = $(find $WORKSPACE_SRC_PATH/doc/examples -type f -name "*.py")
+          scenes_py = $(find "$WORKSPACE_SRC_PATH"/doc/examples -type f -name "*.py")
