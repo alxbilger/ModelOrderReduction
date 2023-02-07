@@ -67,8 +67,10 @@ jobs:
           cd "$WORKSPACE_SRC_PATH"
           echo "$SOFA_ROOT"
           ls -la "$SOFA_ROOT"
+          echo "$SofaPython3_ROOT"
+          ls -la "$SofaPython3_ROOT"
           for f in $(find ./doc/examples -type f -name "*.py" | xargs grep -r "createScene" | cut -d':' -f1 | uniq); do
             echo "Testing $f..."
-            "$SOFA_ROOT"/bin/runSofa${{ steps.sofa.outputs.exe }} -l SofaPython3 "$f$" -g batch -n 10
+            "$SOFA_ROOT"/bin/runSofa${{ steps.sofa.outputs.exe }} -l "$SofaPython3_ROOT"/SofaPython3 "$f$" -g batch -n 10
           done
           
