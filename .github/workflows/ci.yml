@@ -40,4 +40,7 @@ jobs:
         shell: bash
         run: |
           cd "$WORKSPACE_SRC_PATH"
-          find ./doc/examples -type f -name "*.py" | xargs grep -r "createScene" | cut -d':' -f1 | uniq
+          for f in $(find ./doc/examples -type f -name "*.py" | xargs grep -r "createScene" | cut -d':' -f1 | uniq); do
+            echo "$f"
+          done
+          
