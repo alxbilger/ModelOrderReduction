@@ -57,10 +57,11 @@ jobs:
           echo "SofaPython3_DIR=$SofaPython3_ROOT/lib/cmake/SofaPython3" | tee -a $GITHUB_ENV
           if [[ "$RUNNER_OS" == "Windows" ]]; then
             SofaPython3_LIB="$SofaPython3_ROOT"/lib/SofaPython3.lib
-          else if [[ "$RUNNER_OS" == "Linux" ]]; then
+          elif [[ "$RUNNER_OS" == "Linux" ]]; then
             SofaPython3_LIB="$SofaPython3_ROOT"/lib/libSofaPython3.so
           else
             SofaPython3_LIB="$SofaPython3_ROOT"/lib/libSofaPython3.dylib
+          fi
 
       - name: Checkout source code
         uses: actions/checkout@v2
