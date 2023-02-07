@@ -31,16 +31,25 @@ jobs:
             rm -f /usr/local/bin/python3.11
             rm -f /usr/local/bin/python3.11-config
 
+      - name: Setup SOFA and environment
+        id: sofa
+        uses: sofa-framework/sofa-setup-action@v4
+        with:
+          sofa_root: ${{ github.workspace }}/sofa
+          sofa_version: ${{ matrix.sofa_branch }}
+          sofa_scope: 'standard'
+
       - name: Checkout source code
         uses: actions/checkout@v2
         with:
           path: ${{ env.WORKSPACE_SRC_PATH }}
 
-      - name: Find scenes
+      - name: Scenes tests
         shell: bash
         run: |
           cd "$WORKSPACE_SRC_PATH"
+          echo "$SOFA_ROOT"
           for f in $(find ./doc/examples -type f -name "*.py" | xargs grep -r "createScene" | cut -d':' -f1 | uniq); do
-            echo "$f"
+            echo "Testing $f..."
           done
           
