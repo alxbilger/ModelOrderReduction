@@ -40,7 +40,7 @@ jobs:
         shell: bash
         run: |
           cd "$WORKSPACE_SRC_PATH"
-          scene_py = $(find ./doc/examples -type f -name "*.py")
+          scene_py=$(find ./doc/examples -type f -name "*.py")
           for f in scene_py
           do
             echo $f
