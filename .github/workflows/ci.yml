@@ -34,5 +34,5 @@ jobs:
       - name: Find scenes
         shell: bash
         run: |
-          cd "$WORKSPACE_BUILD_PATH"
+          cd "WORKSPACE_SRC_PATH"
           find ./doc/examples -type f -name "*.py"
