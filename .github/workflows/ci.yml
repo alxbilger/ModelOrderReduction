@@ -65,19 +65,18 @@ jobs:
         shell: bash
         run: |
           cd "$WORKSPACE_SRC_PATH"
-          SofaPython3_LIB="$SofaPython3_ROOT"/lib
-          ls -la "$SofaPython3_LIB"
+          SofaPython3_LibName=""
           if [[ "$RUNNER_OS" == "Windows" ]]; then
-            SofaPython3_LIB="$SofaPython3_LIB/SofaPython3.lib"
+            SofaPython3_LibName="SofaPython3.lib"
           elif [[ "$RUNNER_OS" == "Linux" ]]; then
-            SofaPython3_LIB="$SofaPython3_LIB/libSofaPython3.so"
+            SofaPython3_LibName="libSofaPython3.so"
           else
-            SofaPython3_LIB="$SofaPython3_LIB/libSofaPython3.dylib"
+            SofaPython3_LibName="libSofaPython3.dylib"
           fi
-          cp $SofaPython3_LIB "$SOFA_ROOT"/bin
+          cp "$SofaPython3_ROOT/lib/$SofaPython3_LibName" "$SOFA_ROOT"/bin
           echo "$SofaPython3_LIB"
           for f in $(find ./doc/examples -type f -name "*.py" | xargs grep -r "createScene" | cut -d':' -f1 | uniq); do
             echo "Testing $f..."
-            "$SOFA_ROOT"/bin/runSofa${{ steps.sofa.outputs.exe }} -l SofaPython3 "$f$" -g batch -n 10
+            "$SOFA_ROOT"/bin/runSofa${{ steps.sofa.outputs.exe }} -l "$SOFA_ROOT/bin/$SofaPython3_LibName" "$f$" -g batch -n 10
           done
           
