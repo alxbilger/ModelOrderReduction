@@ -74,9 +74,10 @@ jobs:
           else
             SofaPython3_LIB="$SofaPython3_LIB/libSofaPython3.dylib"
           fi
+          cp $SofaPython3_LIB "$SOFA_ROOT"/bin
           echo "$SofaPython3_LIB"
           for f in $(find ./doc/examples -type f -name "*.py" | xargs grep -r "createScene" | cut -d':' -f1 | uniq); do
             echo "Testing $f..."
-            "$SOFA_ROOT"/bin/runSofa${{ steps.sofa.outputs.exe }} -l "$SofaPython3_LIB" "$f$" -g batch -n 10
+            "$SOFA_ROOT"/bin/runSofa${{ steps.sofa.outputs.exe }} -l SofaPython3_LIB "$f$" -g batch -n 10
           done
           
