@@ -19,13 +19,8 @@
 #include <sofa/defaulttype/VecTypes.h>
 #include <sofa/core/ObjectFactory.h>
 
-namespace sofa
-{
 
-namespace component
-{
-
-namespace mapping
+namespace sofa::component::mapping
 {
 
 using namespace sofa::defaulttype;
@@ -42,11 +37,11 @@ static int ModelOrderReductionMappingClass = core::RegisterObject("Reduced model
 
 template class SOFA_MODELORDERREDUCTION_API ModelOrderReductionMapping< Vec1Types, Vec3Types >;
 
-} // namespace mapping
+} // namespace sofa::component::mapping
 
-} // namespace component
 
-} // namespace sofa
+
+
 
 
 

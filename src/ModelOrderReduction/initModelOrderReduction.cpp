@@ -22,9 +22,8 @@ using sofa::helper::system::PluginManager;
 
 #include <fstream>
 
-namespace sofa
-{
-namespace component
+
+namespace sofa::component
 {
 
 //Here are just several convenient functions to help user to know what contains the plugin
@@ -76,5 +75,5 @@ const char* getModuleComponentList()
 }
 
 
-} // namespace component
-} // namespace sofa
+} // namespace sofa::component
+

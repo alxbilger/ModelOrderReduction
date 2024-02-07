@@ -25,13 +25,8 @@
 #include <sofa/defaulttype/RigidTypes.h>
 #include <sofa/core/ObjectFactory.h>
 
-namespace sofa
-{
 
-namespace component
-{
-
-namespace mapping
+namespace sofa::component::mapping
 {
 
 using namespace sofa::defaulttype;
@@ -53,12 +48,9 @@ template class  MORContactMapping< Vec2Types, Vec2Types >;
 template class  MORContactMapping< Vec1Types, Vec1Types >;
 
 
+} // namespace sofa::component::mapping
 
 
 
-} // namespace mapping
 
-} // namespace component
-
-} // namespace sofa
 

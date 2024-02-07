@@ -22,9 +22,8 @@
 #include <Eigen/Dense>
 
 
-namespace sofa {
-namespace component {
-namespace loader {
+namespace sofa::component::loader
+{
 
 template class MatrixLoader<Eigen::MatrixXd>;
 template class MatrixLoader<Eigen::MatrixXf>;
@@ -33,6 +32,6 @@ template class MatrixLoader<Eigen::VectorXd>;
 template class MatrixLoader<Eigen::VectorXf>;
 template class MatrixLoader<Eigen::VectorXi>;
 }
-}
-}
+
+
 #endif

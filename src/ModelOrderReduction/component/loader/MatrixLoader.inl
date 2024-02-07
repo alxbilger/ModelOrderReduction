@@ -24,9 +24,8 @@
 #include <sofa/helper/logging/Messaging.h>
 
 
-namespace sofa {
-namespace component {
-namespace loader {
+namespace sofa::component::loader
+{
 
 using std::vector;
 using std::string;
@@ -92,6 +91,6 @@ void MatrixLoader<EigenMatrixType>::setFileName(string fileName){
 
 
 }
-}
-}
+
+
 #endif

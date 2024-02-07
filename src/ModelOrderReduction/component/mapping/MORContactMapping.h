@@ -35,10 +35,8 @@
 namespace sofa
 {
 
-namespace component
-{
 
-namespace mapping
+namespace component::mapping
 {
 
 template <class TIn, class TOut>
@@ -170,9 +168,7 @@ extern template class  MORContactMapping< defaulttype::Rigid2Types, defaulttype:
 
 #endif
 
-} // namespace mapping
-
-} // namespace component
+} // namespace component::mapping
 
 
 namespace helper

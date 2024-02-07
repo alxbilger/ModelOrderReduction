@@ -30,13 +30,8 @@
 #include "../loader/MatrixLoader.h"
 #include <sofa/core/MappingHelper.h>
 
-namespace sofa
-{
 
-namespace component
-{
-
-namespace mapping
+namespace sofa::component::mapping
 {
 
 using sofa::component::loader::MatrixLoader;
@@ -186,10 +181,7 @@ const typename MORContactMapping<TIn, TOut>::js_type* MORContactMapping<TIn, TOu
 }
 
 
-} // namespace mapping
+} // namespace sofa::component::mapping
 
-} // namespace component
-
-} // namespace sofa
 
 #endif

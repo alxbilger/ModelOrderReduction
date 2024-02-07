@@ -21,9 +21,9 @@
 #include <iostream>
 #include <vector>
 
-namespace sofa {
-namespace component {
-namespace loader {
+
+namespace sofa::component::loader
+{
 
 template< class EigenMatrixType >
 class MatrixLoader {
@@ -51,7 +51,6 @@ protected:
 
 
 }
-}
-}
+
 
 #endif

@@ -32,13 +32,8 @@
 #include <sofa/core/objectmodel/DataFileName.h>
 #include <sofa/core/Mapping.h>
 
-namespace sofa
-{
 
-namespace component
-{
-
-namespace mapping
+namespace sofa::component::mapping
 {
 
 
@@ -177,12 +172,8 @@ public:
 extern template class SOFA_MODELORDERREDUCTION_API ModelOrderReductionMapping< sofa::defaulttype::Vec1Types, sofa::defaulttype::Vec3Types >;
 #endif
 
-} // namespace mapping
+} // namespace sofa::component::mapping
 
-} // namespace component
-
-
-} // namespace sofa
 
 #endif
 
